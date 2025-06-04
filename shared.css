@@ -1,3 +1,8 @@
+/**
+ * Shared CSS Styles - Version 2.0
+ * Last Updated: June 2025
+ * Changes: Consolidated all checklist styles from HTML into CSS
+ */
 
 :root {
   /* === Color Palette === */
@@ -56,6 +61,13 @@
   --input-border: #5C5A7A;                                       /* Input border color */
   --input-radius: var(--radius);                                 /* Border radius for inputs */
   --input-padding: 0.6rem 1rem;                                  /* Input inner spacing */
+
+  /* === Checklist Specific Colors (v2.0) === */
+  --checklist-text: #e2e8f0;
+  --checklist-category-title: #90cdf4;
+  --checklist-label-bg: #1a202c;
+  --checklist-label-hover: #2d3748;
+  --checklist-score-bg: #1e263b;
 }
 
 /* === Ensure padding/border is included in total width/height === */
@@ -71,6 +83,16 @@ body {
   padding: 2rem;
 }
 
+/* === Enhanced Body for Checklist Pages (v2.0) === */
+body.checklist-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-body);
+  color: var(--checklist-text);
+  padding: 2rem;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
 /* === Card / Container Block === */
 .card {
   background-color: var(--bg-card);
@@ -79,6 +101,27 @@ body {
   border: 1px solid var(--border-color);
   max-width: var(--max-width);
   margin: 1rem auto;
+}
+
+/* === Card Gradient Variations (v2.0) === */
+.card.red-gradient {
+  background: linear-gradient(to right, var(--red-gradient-start), var(--red-gradient-end));
+  border-color: var(--red-border-highlight);
+}
+
+.card.blue-gradient {
+  background: linear-gradient(to right, var(--blue-gradient-start), var(--blue-gradient-end));
+  border-color: var(--blue-border-highlight);
+}
+
+.card.green-gradient {
+  background: linear-gradient(to right, var(--green-gradient-start), var(--green-gradient-end));
+  border-color: var(--green-border-highlight);
+}
+
+.card.purple-gradient {
+  background: linear-gradient(to right, var(--purple-gradient-start), var(--purple-gradient-end));
+  border-color: var(--purple-border-highlight);
 }
 
 /* === Headings === */
@@ -90,6 +133,27 @@ h1 {
 h2 {
   font-size: 20px;
   color: var(--highlight); /* H2 uses highlight color */
+}
+
+/* === Category Headings (v2.0) === */
+h3.category-title {
+  margin-bottom: 1rem;
+}
+
+h3.red-title {
+  color: var(--red-border-highlight);
+}
+
+h3.blue-title {
+  color: var(--blue-border-highlight);
+}
+
+h3.green-title {
+  color: var(--green-border-highlight);
+}
+
+h3.purple-title {
+  color: var(--purple-border-highlight);
 }
 
 /* === Paragraph Styling === */
@@ -132,6 +196,27 @@ p {
   filter: brightness(0.9); /* Dim button on click */
 }
 
+/* === Calculate Button (v2.0) === */
+.button.calculate-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #0F2A5C 35%, #12264C 50%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  min-width: 220px;
+  text-align: center;
+  max-width: var(--form-control-max-width);
+}
+
+.button.calculate-btn:hover {
+  opacity: 0.9;
+}
+
 /* === Input Field Styling === */
 .input {
   background-color: var(--input-bg);
@@ -170,9 +255,75 @@ p {
   min-width: 0;               /* Prevent overflow */
 }
 
+/* === Checklist Specific Styles (v2.0) === */
+.category {
+  margin-bottom: 2.5rem;
+}
+
+.checklist-label {
+  display: block;
+  margin: 0.75rem 0;
+  padding: 0.5rem 1rem;
+  background: var(--checklist-label-bg);
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.checklist-label:hover {
+  background: var(--checklist-label-hover);
+}
+
+.checklist-label input[type="checkbox"] {
+  margin-right: 0.75rem;
+}
+
+.score-box {
+  background: var(--checklist-score-bg);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.risk-message {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
+
+/* === Center Button Container (v2.0) === */
+.button-center {
+  display: flex;
+  justify-content: center;
+}
+
 /* === Mobile Stacking === */
 @media (max-width: 640px) {
   .form-row {
     flex-direction: column;   /* Stack items on small screens */
+  }
+}
+
+/* === Mobile Checklist Styles (v2.0) === */
+@media (max-width: 480px) {
+  body.checklist-page {
+    font-size: 16px;
+    padding: 1.5rem;
+  }
+  
+  .score-box {
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .checklist-label {
+    font-size: 90%;
+  }
+  
+  .category h3 {
+    font-size: 95%;
   }
 }
