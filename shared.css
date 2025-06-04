@@ -45,7 +45,7 @@
   --button-gradient: linear-gradient(90deg, #5865F2, #A960EE);     /* Main button gradient */
   --button-gradient-hover: linear-gradient(90deg, #4754D4, #954ED1); /* Button on hover */
   --button-border: #7D6EFF;                                       /* Border color for buttons */
-  /* --button-max-width: 240px; */                                /* Deprecated, use --form-control-max-width */
+  --button-max-width: 240px;                                     /* Deprecated, use --form-control-max-width */
   --button-radius: var(--radius);                                /* Border radius for button */
   --button-padding: 0.6rem 1rem;                                  /* Button inner spacing */
 
@@ -53,7 +53,6 @@
   --input-bg: var(--bg-light);                                   /* Input field background */
   --input-text: var(--text-light);                               /* Input field text */
   --input-border: #5C5A7A;                                       /* Input border color */
-  /* --input-max-width: 240px; */                                /* Deprecated, use --form-control-max-width */
   --input-radius: var(--radius);                                 /* Border radius for inputs */
   --input-padding: 0.6rem 1rem;                                  /* Input inner spacing */
 }
@@ -174,5 +173,31 @@ p {
 @media (max-width: 640px) {
   .form-row {
     flex-direction: column;   /* Stack items on small screens */
+  }
+}
+
+/* === Score Box and Risk Message === */
+.score-box {
+  background: var(--bg-card);
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.risk-message {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+  text-align: center; /* ✅ this line fixes the issue */
+}
+
+@media (max-width: 480px) {
+  .score-box {
+    font-size: 1rem;
+    padding: 1.5rem;
   }
 }
