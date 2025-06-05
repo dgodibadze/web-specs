@@ -176,3 +176,13 @@ p {
     flex-direction: column;   /* Stack items on small screens */
   }
 }
+/* === Card / Container Block === */
+.score-box-visual {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  max-width: var(--max-width);
+  margin: 1rem auto;
+  display: none;
+}
